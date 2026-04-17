@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Academic palette — slate-900 / indigo-950 (from docs/08_visual_style_guide.md) */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;           /* slate-900 */
+
+    --muted: 220 14% 96%;                /* slate-100 */
+    --muted-foreground: 215 16% 47%;     /* slate-500 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --border: 214 32% 91%;               /* slate-200 */
+    --ring: 222 47% 11%;
+
+    --primary: 222 47% 11%;              /* slate-900 */
+    --primary-foreground: 210 40% 98%;   /* slate-50 */
+
+    --accent: 215 25% 27%;               /* slate-700 */
+    --accent-foreground: 210 40% 98%;
+
+    --link: 226 57% 21%;                 /* indigo-950 */
+  }
+
+  .dark {
+    --background: 222 47% 6%;            /* near #0B1120 */
+    --foreground: 210 40% 96%;
+
+    --muted: 217 33% 12%;
+    --muted-foreground: 215 20% 65%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 96%;
+
+    --border: 217 33% 17%;
+    --ring: 210 40% 96%;
+
+    --primary: 210 40% 96%;
+    --primary-foreground: 222 47% 11%;
+
+    --accent: 215 20% 75%;
+    --accent-foreground: 222 47% 11%;
+
+    --link: 213 94% 78%;                 /* light indigo for dark bg */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.15);
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-semibold tracking-tight;
+  }
+
+  a {
+    @apply underline-offset-4;
+  }
+}
+
+@layer utilities {
+  .section {
+    @apply py-16 md:py-24;
+  }
+  .section-tight {
+    @apply py-12 md:py-16;
+  }
+  .prose-academic {
+    @apply text-foreground/90 leading-relaxed;
+  }
+}
+
+/* Print styles — used primarily by /cv when exporting to PDF. */
+@media print {
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  /* Neutralise design tokens so the printed page does not pick up dark-mode colors. */
+  :root,
+  .dark {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 215 16% 35%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --border: 0 0% 80%;
+    --primary: 222 47% 11%;
+    --primary-foreground: 0 0% 100%;
+    --link: 226 57% 21%;
+  }
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+  .cv-root {
+    font-size: 11pt !important;
+  }
+  .cv-root h1 {
+    font-size: 20pt !important;
+  }
+  .cv-root h2 {
+    font-size: 9pt !important;
+  }
+  .cv-root h3 {
+    font-size: 11pt !important;
+  }
+  @page {
+    margin: 14mm 16mm;
+  }
+}
