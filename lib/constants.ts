@@ -8,8 +8,8 @@ export const siteConfig: SiteConfig = {
   name: "Fangzhou Lin",
   url: "https://fangzhoulin.com",
   description: {
-    en: "Academic personal website of Fangzhou Lin, undergraduate student in Electrical Engineering and Automation at Wuhan University, focused on power forecasting, multimodal learning, and AI for energy systems.",
-    zh: "武汉大学电气工程及其自动化本科生林方舟的学术个人主页，聚焦电力系统时序预测、多模态数据建模与面向能源的人工智能方法。",
+    en: "Academic personal website of Fangzhou Lin, an undergraduate student in Electrical Engineering and Automation at Wuhan University, focused on power system time-series forecasting, multimodal energy data modeling, and AI methods.",
+    zh: "武汉大学电气工程及其自动化专业本科在读学生林方舟的学术个人主页，聚焦电力系统时序预测、多模态能源数据建模与人工智能方法。",
   },
   author: "Fangzhou Lin",
   nav: [

@@ -2,19 +2,15 @@ import type { SkillGroup } from "@/types";
 
 export const skills: SkillGroup[] = [
   {
-    category: { en: "Programming", zh: "编程语言" },
-    items: ["Python", "MATLAB", "JavaScript / TypeScript"],
+    category: { en: "Programming Languages", zh: "编程语言" },
+    items: ["Python", "MATLAB", "JavaScript"],
   },
   {
-    category: { en: "ML Frameworks", zh: "机器学习框架" },
+    category: { en: "Deep Learning Frameworks", zh: "深度学习框架" },
     items: ["PyTorch", "TensorFlow"],
   },
   {
-    category: { en: "Scientific Tools", zh: "科研工具" },
-    items: ["COMSOL", "ArcGIS", "Origin", "LaTeX"],
-  },
-  {
-    category: { en: "Engineering", zh: "工程能力" },
-    items: ["Git", "Next.js", "Docker", "Linux"],
+    category: { en: "Tools", zh: "工具" },
+    items: ["Git", "COMSOL Multiphysics", "ArcGIS", "LaTeX", "Origin"],
   },
 ];

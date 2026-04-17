@@ -4,7 +4,7 @@ import { buildMetadata } from "@/lib/metadata";
 export const metadata = buildMetadata({
   title: "Projects",
   description:
-    "Selected research projects by Fangzhou Lin across power forecasting, multimodal learning, and scientific computing.",
+    "Projects synchronized with Fangzhou Lin's CV, covering GRAFT, LaST-BO, and DC-GIS across load forecasting, multimodal energy data modeling, and simulation software development.",
   path: "/projects",
 });
 

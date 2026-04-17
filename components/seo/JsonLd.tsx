@@ -54,6 +54,7 @@ export function WebSiteJsonLd() {
 export function ProjectJsonLd({ slug }: { slug: string }) {
   const project = getProjectBySlug(slug);
   if (!project) return null;
+  const period = typeof project.period === "string" ? project.period : project.period.en;
 
   return jsonLd({
     "@context": "https://schema.org",
@@ -64,7 +65,7 @@ export function ProjectJsonLd({ slug }: { slug: string }) {
     abstract: project.summary.en,
     description: project.background.en,
     keywords: [...project.tags, ...project.tech].join(", "),
-    datePublished: project.period,
+    datePublished: period,
     author: {
       "@type": "Person",
       name: profile.name,

@@ -18,8 +18,8 @@ export default function ProjectsPage() {
             eyebrow={t({ en: "Research Portfolio", zh: "科研作品集" })}
             title={t({ en: "Projects", zh: "项目" })}
             description={t({
-              en: "Selected research projects across power forecasting, multimodal learning, and scientific computing. Use the filters to narrow by research direction.",
-              zh: "涵盖电力预测、多模态建模与科学计算的精选科研项目。可通过标签按研究方向筛选。",
+              en: "Projects synchronized with my CV, covering GRAFT, LaST-BO, and DC-GIS across load forecasting, multimodal energy data modeling, and simulation software development.",
+              zh: "与简历同步的项目列表，涵盖 GRAFT、LaST-BO 与 DC-GIS，聚焦负荷预测、多模态能源数据建模与仿真软件开发。",
             })}
           />
           <ProjectsFilter projects={projects} />

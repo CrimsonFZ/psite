@@ -19,8 +19,8 @@ export function SelectedProjects() {
             eyebrow={t({ en: "Portfolio", zh: "作品集" })}
             title={t({ en: "Selected Projects", zh: "精选项目" })}
             description={t({
-              en: "Three projects spanning forecasting, optimisation, and engineering simulation.",
-              zh: "三个覆盖预测、优化与工程仿真的代表性项目。",
+              en: "Three CV-aligned projects covering power-load forecasting, charging-load prediction, and DC-GIS simulation software.",
+              zh: "三项与简历同步的代表性项目，涵盖电力负荷预测、充电负荷预测与 DC-GIS 仿真软件。",
             })}
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

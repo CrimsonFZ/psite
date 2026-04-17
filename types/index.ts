@@ -21,7 +21,7 @@ export interface Profile {
 export interface EducationItem {
   institution: Localized<string>;
   program: Localized<string>;
-  period: string;
+  period: string | Localized<string>;
   gpa?: string;
   score?: string;
   description?: Localized<string>;
@@ -47,7 +47,7 @@ export interface Project {
   slug: string;
   title: Localized<string>;
   subtitle?: Localized<string>;
-  period: string;
+  period: string | Localized<string>;
   featured?: boolean;
   summary: Localized<string>;
   background: Localized<string>;

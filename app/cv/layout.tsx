@@ -3,7 +3,8 @@ import { buildMetadata } from "@/lib/metadata";
 
 export const metadata = buildMetadata({
   title: "CV",
-  description: "Curriculum vitae of Fangzhou Lin — education, research, projects, and awards.",
+  description:
+    "Curriculum vitae of Fangzhou Lin, including education, research interests, projects, awards, and skills synchronized with the latest resume.",
   path: "/cv",
 });
 

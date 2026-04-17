@@ -21,7 +21,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <Card className="h-full flex flex-col group-hover:border-foreground/40 group-hover:-translate-y-0.5 group-hover:shadow-md">
         <CardHeader>
           <div className="flex items-start justify-between gap-3">
-            <p className="text-xs text-muted-foreground">{project.period}</p>
+            <p className="text-xs text-muted-foreground">
+              {typeof project.period === "string" ? project.period : t(project.period)}
+            </p>
             <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </div>
           <CardTitle className="mt-2 text-base md:text-lg leading-snug">

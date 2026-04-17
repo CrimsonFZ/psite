@@ -27,7 +27,7 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
 
       <div className="space-y-4">
         <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground tabular-nums">
-          {project.period}
+          {typeof project.period === "string" ? project.period : t(project.period)}
         </p>
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1]">
           {t(project.title)}

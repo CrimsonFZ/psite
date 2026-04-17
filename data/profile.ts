@@ -5,7 +5,7 @@ export const profile: Profile = {
   chineseName: "林方舟",
   title: {
     en: "Undergraduate Student in Electrical Engineering and Automation",
-    zh: "电气工程及其自动化 · 本科生",
+    zh: "电气工程及其自动化 · 本科在读",
   },
   university: {
     en: "Wuhan University",
@@ -18,25 +18,23 @@ export const profile: Profile = {
   email: "2023302071360@whu.edu.cn",
   github: "https://github.com/CrimsonFZ",
   tagline: {
-    en: "Power forecasting · Multimodal learning · AI for energy systems.",
-    zh: "电力系统时序预测 · 多模态数据建模 · 面向能源的人工智能。",
+    en: "Power system time-series forecasting · Multimodal energy data modeling · AI methods.",
+    zh: "电力系统时序预测 · 多模态能源数据建模 · 人工智能方法。",
   },
   bio: {
-    en: "I am an undergraduate at Wuhan University working on time-series forecasting for power systems, multimodal data modeling, and AI-driven applications in energy. I build research prototypes end-to-end — from data pipelines and models to internal platforms — so that methods can be validated in realistic operational settings.",
-    zh: "我是武汉大学电气工程及其自动化本科生，研究方向为电力系统时序预测、多模态数据建模与面向能源的人工智能应用。我习惯端到端构建研究原型，从数据流水线、模型到内部平台，让方法能够在贴近真实运行场景中得到验证。",
+    en: "I am an undergraduate student at Wuhan University majoring in Electrical Engineering and Automation. My current work focuses on power system time-series forecasting, multimodal energy data modeling, and AI methods, with recent projects spanning GRAFT, LaST-BO, and DC-GIS simulation software development.",
+    zh: "我是武汉大学电气工程及其自动化专业本科在读学生，当前主要关注电力系统时序预测、多模态能源数据建模和人工智能方法，近期工作涵盖 GRAFT 负荷预测研究、LaST-BO 充电负荷预测以及直流 GIS 仿真软件开发。",
   },
   interests: {
     en: [
       "Power system time-series forecasting",
-      "Multimodal data modeling",
-      "AI methods for energy systems",
-      "Scientific software & research platforms",
+      "Multimodal energy data modeling",
+      "AI methods",
     ],
     zh: [
       "电力系统时序预测",
-      "多模态数据建模",
-      "面向能源系统的 AI 方法",
-      "科研软件与研究平台",
+      "多模态能源数据建模",
+      "人工智能方法",
     ],
   },
 };

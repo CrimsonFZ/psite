@@ -1,56 +1,44 @@
 import type { Award } from "@/types";
 
-/**
- * Awards inferred from docs/07_content_mapping_from_resume.md.
- * Specific competition names and exact dates should be filled in once confirmed.
- */
 export const awards: Award[] = [
   {
-    period: "2024",
-    category: { en: "National", zh: "国家级" },
+    period: "2024 – 2025",
+    category: { en: "Competition", zh: "竞赛" },
     title: {
-      en: "Grand Prize, National Undergraduate Competition",
-      zh: "全国大学生学科竞赛 · 特等奖",
-    },
-    description: {
-      en: "Highest-tier award at a national-level undergraduate competition, recognising a team project on power-system applications.",
-      zh: "国家级大学生学科竞赛的最高等级奖项，表彰一项面向电力系统应用的团队成果。",
+      en: "Grand Prize, China Society for Electrical Engineering Cup Mathematical Modeling Competition",
+      zh: "“中国电机工程学会杯”数学建模竞赛国家级特等奖",
     },
   },
   {
-    period: "2024",
-    category: { en: "Provincial", zh: "省级" },
+    period: "2024 – 2025",
+    category: { en: "Research Program", zh: "项目" },
     title: {
-      en: "Provincial Completion — Innovation & Entrepreneurship Training Program (CUC)",
-      zh: "大学生创新创业训练计划 · 省级结项",
-    },
-    description: {
-      en: "Completed a CUC-funded student research project as principal investigator, delivering a working prototype and technical report.",
-      zh: "作为负责人承担并完成一项大创资助的本科生科研项目，交付可运行原型与技术报告。",
+      en: "Undergraduate Innovation and Entrepreneurship Training Program (Provincial Completion)",
+      zh: "大学生创新创业训练计划（省级结项）",
     },
   },
   {
     period: "2023 – 2024",
     category: { en: "Scholarship", zh: "奖学金" },
     title: {
-      en: "University Scholarship",
-      zh: "校级奖学金",
-    },
-    description: {
-      en: "Awarded for academic performance at Wuhan University.",
-      zh: "因在校期间的学业表现而获授。",
+      en: "Special Scholarship for Undergraduate Third-Semester Overseas Study (University of Cambridge)",
+      zh: "本科生第三学期出国境专项奖学金（赴英国剑桥大学）",
     },
   },
   {
-    period: "2023",
-    category: { en: "Exchange", zh: "国际交流" },
+    period: "2023 – 2024",
+    category: { en: "Scholarship", zh: "奖学金" },
     title: {
-      en: "International Academic Exchange Programme",
-      zh: "国际学术交流项目",
+      en: "Special Scholarship, Chenguang Cable Co., Ltd.",
+      zh: "晨光电缆股份有限公司专项奖学金",
     },
-    description: {
-      en: "Participated in an international academic exchange programme, with short-term study and research activities abroad.",
-      zh: "参与一项国际学术交流项目，赴境外开展短期学习与科研活动。",
+  },
+  {
+    period: "2024 – 2025",
+    category: { en: "Scholarship", zh: "奖学金" },
+    title: {
+      en: "Third-Class Scholarship, Wuhan University",
+      zh: "武汉大学校级丙等奖学金",
     },
   },
 ];

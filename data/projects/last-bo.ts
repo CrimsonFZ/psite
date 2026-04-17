@@ -3,63 +3,57 @@ import type { Project } from "@/types";
 export const lastBo: Project = {
   slug: "last-bo",
   title: {
-    en: "LaST-BO: Charging Load Forecasting & Bayesian Optimisation Platform",
-    zh: "LaST-BO：充电负荷预测与贝叶斯优化平台",
+    en: "LaST-BO: Charging Load Forecasting",
+    zh: "基于 LaST-BO 的充电负荷预测",
   },
   subtitle: {
-    en: "Forecasting and hyperparameter search, delivered as an internal research platform.",
-    zh: "集预测建模与贝叶斯超参搜索于一体的内部科研平台。",
+    en: "Charging-station load forecasting under realistic scenarios, paired with publication acceptance and software copyright.",
+    zh: "面向真实复杂场景的充电负荷预测研究，已形成论文录用与软著成果。",
   },
-  period: "2023 – 2024",
+  period: "2025.6 – 2025.11",
   featured: true,
   summary: {
-    en: "A research platform that pairs EV charging-load forecasting with Bayesian optimisation for model selection and tuning. Produced a registered software copyright.",
-    zh: "一套面向电动汽车充电负荷预测的科研平台，内置贝叶斯优化完成模型选择与超参调优，并已取得软件著作权。",
+    en: "A LaST-BO charging-load forecasting study for complex real-world EV-charging scenarios. The work combined decoupled representation learning with Bayesian optimization, led to an acceptance from Zhejiang Electric Power in 2025, and produced a registered software copyright.",
+    zh: "面向复杂真实情境下的电动汽车充电站负荷预测需求，构建融合解耦表示学习与贝叶斯优化的 LaST-BO 模型。论文于 2025 年被《浙江电力》录用，并取得相关软件著作权。",
   },
   background: {
-    en: "Electric-vehicle charging load exhibits strong multi-scale temporal patterns — daily commuting cycles, weekday / weekend shifts, and weather-driven demand. Manually tuning forecasting models for each substation or scenario is slow and error-prone, which motivated an integrated platform that wraps the training loop in Bayesian optimisation and exposes a usable interface for experiment comparison.",
-    zh: "电动汽车充电负荷具有显著的多尺度时间模式：日通勤周期、工作日与周末的结构性差异，以及受天气驱动的需求变化。为每一个变电站或场景人工调参效率低且易出错，因此我们将训练流程封装进贝叶斯优化循环，并配套可用的前端界面用于实验对比，形成一体化平台。",
+    en: "To meet the demand for EV charging-station load forecasting under complex realistic scenarios, this project built a LaST-BO model that combines decoupled representation learning and Bayesian optimization.",
+    zh: "面向复杂真实情境下的电动汽车充电站负荷预测需求，构建融合解耦表示学习与贝叶斯优化的 LaST-BO 模型。",
   },
   coreWork: {
     en: [
-      "Implemented baseline and advanced charging-load forecasters over a unified data pipeline",
-      "Integrated Bayesian optimisation for hyperparameter and model selection with warm-start support",
-      "Built a platform UI covering experiment launch, tracking, and comparison across datasets",
-      "Prepared documentation and submitted materials for software copyright registration",
+      "Developed the forecasting-results display platform, including frontend design and implementation",
+      "Integrated data interaction, charging-station geographic cloud maps, and an AI assistant module",
     ],
     zh: [
-      "在统一的数据流水线上实现基线与进阶的充电负荷预测模型",
-      "集成贝叶斯优化用于超参数与模型选择，并支持热启动",
-      "开发覆盖实验启动、追踪与跨数据集对比的平台前端",
-      "完成文档编写并提交软件著作权登记材料",
+      "负责预测结果展示平台开发，完成前端设计与实现",
+      "集成数据交互功能、充电站地理云图与 AI 助手模块",
     ],
   },
   methods: {
     en: [
-      "Time-series forecasting (statistical, tree-based, deep neural)",
-      "Bayesian optimisation for hyperparameter search",
-      "Full-stack platform development with experiment tracking",
+      "Participated in parameter design and experimental validation",
+      "Built the modeling analysis on real charging-station data from Wuhan",
     ],
     zh: [
-      "时序预测（统计、树模型与深度神经网络）",
-      "面向超参搜索的贝叶斯优化",
-      "全栈平台开发与实验追踪",
+      "参与参数设计与实验验证",
+      "基于武汉市实际充电站数据进行建模分析",
     ],
   },
   outcomes: {
     en: [
-      "Registered software copyright",
-      "Reusable in-lab research platform adopted across follow-up studies",
-      "Measurable reduction in tuning effort for new forecasting tasks",
+      'Paper accepted by Zhejiang Electric Power in 2025: "LaST-BO Charging Load Forecasting Model Improved by Bayesian Optimization"',
+      "Co-second author",
+      'Registered software copyright: "Power Load Forecasting System Based on the LaST-BO Model V1.0"',
     ],
     zh: [
-      "取得软件著作权",
-      "成为课题组可复用的科研平台，被后续研究沿用",
-      "在新的预测任务上显著降低调参工作量",
+      "论文《基于贝叶斯优化改进的 LaST-BO 充电负荷预测模型》于 2025 年被《浙江电力》录用",
+      "共同二作",
+      "获得软件著作权《基于 LaST-BO 模型的电力负荷预测系统 V1.0》",
     ],
   },
   tags: ["Forecasting", "Optimization", "Web Platform", "Power Systems"],
-  tech: ["Python", "PyTorch", "scikit-optimize", "JavaScript"],
+  tech: ["JavaScript", "Python", "Bayesian Optimization"],
   coverImage: "/project-images/last-bo/cover.png",
   gallery: [
     {

@@ -3,63 +3,55 @@ import type { Project } from "@/types";
 export const dcGis: Project = {
   slug: "dc-gis",
   title: {
-    en: "DC-GIS: Simulation & Engineering Software for DC Gas-Insulated Switchgear",
-    zh: "直流 GIS：直流气体绝缘开关的仿真与工程软件",
+    en: "DC-GIS: Dynamic Electric-Field Distribution Simulation for Gas-Solid Insulation Systems",
+    zh: "直流 GIS 气固绝缘系统电场动态分布仿真模型",
   },
   subtitle: {
-    en: "COMSOL-based physical modelling wrapped into a usable engineering tool.",
-    zh: "基于 COMSOL 的物理建模，封装为可直接使用的工程软件。",
+    en: "COMSOL simulation and software development for a DC-GIS gas-solid insulation system.",
+    zh: "面向直流 GIS 气固绝缘系统的 COMSOL 仿真与软件开发。",
   },
-  period: "2023 – 2024",
+  period: "2024.9 – 2025.12",
   featured: true,
   summary: {
-    en: "A simulation and auxiliary-software project for DC gas-insulated switchgear, developed in collaboration with an industrial partner.",
-    zh: "面向直流气体绝缘开关（DC-GIS）的仿真与辅助软件项目，与企业合作方共同开展。",
+    en: "A DC-GIS gas-solid insulation-system simulation project focused on parameter analysis, structural optimization, COMSOL modeling, and software development.",
+    zh: "面向直流 GIS 气固绝缘系统电场分析需求，开发仿真软件，实现参数分析与结构优化。",
   },
   background: {
-    en: "DC-GIS behaviour under transient and quasi-steady conditions — electric-field distribution, thermal coupling, insulation margin — is difficult to capture analytically, so engineering practice relies on repeated finite-element simulations per device configuration. Building each case from scratch in a general-purpose solver is slow and inconsistent across engineers, which motivated a scripted simulation workflow with a thin application layer on top.",
-    zh: "直流 GIS 在暂态与准稳态工况下的行为 —— 电场分布、热耦合、绝缘裕度 —— 难以解析求解，工程实践需针对不同装置配置反复进行有限元仿真。逐案在通用求解器中从零搭建模型效率低且工程师之间难以保持一致，因此我们构建了脚本化的仿真工作流，并在其上叠加一层薄应用层。",
+    en: "To meet the need for electric-field analysis in DC-GIS gas-solid insulation systems, this project developed simulation software for parameter analysis and structural optimization.",
+    zh: "面向直流 GIS 气固绝缘系统电场分析需求，开发仿真软件，实现参数分析与结构优化。",
   },
   coreWork: {
     en: [
-      "Built COMSOL multiphysics models for representative DC-GIS configurations",
-      "Developed an auxiliary software layer to automate common simulation setups and parameter sweeps",
-      "Coordinated with the industrial partner on engineering requirements, acceptance criteria, and case validation",
-      "Documented usage and handed over a reproducible workflow to the engineering team",
+      "Built physics models of basin insulators on the COMSOL platform",
+      "Developed simulation software for the gas-solid insulation system",
     ],
     zh: [
-      "针对代表性的直流 GIS 配置构建 COMSOL 多物理场模型",
-      "开发辅助软件层，自动化常见的仿真配置与参数扫描",
-      "与企业合作方对齐工程需求、验收标准与案例验证",
-      "编写使用文档，向工程团队交付可复现的工作流",
+      "负责基于 COMSOL 平台的盆式绝缘子物理建模及气固系统仿真软件开发",
+      "开展直流 GIS 气固绝缘系统的仿真建模与软件实现",
     ],
   },
   methods: {
     en: [
-      "Finite-element simulation with multiphysics coupling",
-      "Scripted automation around a commercial solver",
-      "Engineering software design for domain users",
+      "Collaborated with TBEA Co., Ltd. on model validation and software deployment",
+      "Delivered a cross-platform application workflow",
     ],
     zh: [
-      "多物理场耦合的有限元仿真",
-      "针对商业求解器的脚本化自动化",
-      "面向领域用户的工程软件设计",
+      "与特变电工股份有限公司合作，完成模型验证与软件部署",
+      "实现跨平台应用",
     ],
   },
   outcomes: {
     en: [
-      "Industry-facing deliverable accepted by the partner",
-      "Automated simulation workflow replacing ad-hoc case setup",
-      "Shared platform enabling consistent results across engineers",
+      'Registered software copyright: "DC GIS Gas-Solid Insulation System Simulation Platform V1.0"',
+      "Delivered COMSOL-based simulation and software development for the project",
     ],
     zh: [
-      "面向企业方的可交付成果并获验收",
-      "以自动化仿真流程替代零散的逐案配置",
-      "形成工程师之间结果一致的共享平台",
+      "获得软件著作权《直流 GIS 气固绝缘系统仿真平台 V1.0》",
+      "完成 COMSOL 仿真与软件开发交付",
     ],
   },
   tags: ["Simulation", "Power Systems"],
-  tech: ["COMSOL", "MATLAB", "Python"],
+  tech: ["COMSOL Multiphysics", "MATLAB", "Software Development"],
   coverImage: "/project-images/dc-gis/cover.png",
   gallery: [
     {
