@@ -11,7 +11,5 @@ export const education: EducationItem[] = [
       en: "2023 – 2027 (expected)",
       zh: "2023.9 – 至今",
     },
-    score: "88.65 / 100",
-    gpa: "3.68 / 4.0",
   },
 ];

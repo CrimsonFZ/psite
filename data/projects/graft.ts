@@ -87,7 +87,7 @@ export const graft: Project = {
   ],
   links: {
     // Fill in when the repository, preprint, or demo is public.
-    // github: "https://github.com/CrimsonFZ/graft",
+    github: "https://github.com/CrimsonFZ/GRAFT-GRid-Aware-Forecasting-with-Text",
     // paper: "https://doi.org/...",
   },
 };
