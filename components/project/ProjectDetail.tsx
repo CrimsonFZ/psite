@@ -15,6 +15,7 @@ interface ProjectDetailProps {
 export function ProjectDetail({ slug }: ProjectDetailProps) {
   const project = getProjectBySlug(slug);
   const { t } = useLang();
+
   if (!project) return null;
 
   return (
@@ -24,26 +25,31 @@ export function ProjectDetail({ slug }: ProjectDetailProps) {
           <ProjectHeader project={project} />
         </FadeIn>
 
-        <div className="mt-12 md:mt-16">
+        <div className="mt-10 md:mt-14">
           <FadeIn>
-            <p className="prose-academic text-base md:text-lg leading-relaxed max-w-prose border-l-2 border-primary/50 pl-5 text-foreground/90">
-              {t(project.summary)}
-            </p>
+            <div className="research-lead">
+              <div className="pl-5 md:pl-7">
+                <p className="academic-label">
+                  {t({ en: "Project Summary", zh: "项目摘要" })}
+                </p>
+                <p className="mt-3 max-w-4xl text-lg leading-8 text-foreground/88 md:text-[1.14rem] md:leading-9">
+                  {t(project.summary)}
+                </p>
+              </div>
+            </div>
           </FadeIn>
         </div>
 
-        <div className="mt-14 md:mt-20">
-          <FadeIn>
-            <ProjectTimeline project={project} />
-          </FadeIn>
+        <div className="mt-12 md:mt-16">
+          <ProjectTimeline project={project} />
         </div>
 
         {project.gallery && project.gallery.length > 0 ? (
-          <div className="mt-16 md:mt-20">
+          <div className="mt-14 md:mt-20">
             <FadeIn>
               <ImageGallery
                 items={project.gallery}
-                index={project.tech && project.tech.length > 0 ? 6 : 5}
+                index={project.tech.length > 0 ? 6 : 5}
               />
             </FadeIn>
           </div>

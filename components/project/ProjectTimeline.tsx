@@ -1,6 +1,8 @@
 "use client";
 
 import { type ReactNode } from "react";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
+import { Badge } from "@/components/ui/Badge";
 import { useLang } from "@/lib/i18n";
 import type { Localized, Project } from "@/types";
 
@@ -8,107 +10,122 @@ interface ProjectTimelineProps {
   project: Project;
 }
 
-/**
- * Renders the four narrative sections of a research project
- * (Background, Core Work, Methods, Outcomes) with a consistent
- * academic layout: numeral label · section title · rule · content.
- *
- * The name "Timeline" follows docs/05_component_spec.md — these are
- * thematic sections, not chronological.
- */
 export function ProjectTimeline({ project }: ProjectTimelineProps) {
   const { t } = useLang();
 
-  return (
-    <div className="space-y-14 md:space-y-16">
-      <Section
-        index={1}
-        title={t({ en: "Background", zh: "项目背景" })}
-        body={<p className="prose-academic max-w-prose leading-relaxed">{t(project.background)}</p>}
-      />
-      <Section
-        index={2}
-        title={t({ en: "Core Work", zh: "核心工作" })}
-        body={<BulletList items={project.coreWork} t={t} />}
-      />
-      <Section
-        index={3}
-        title={t({ en: "Methods", zh: "方法" })}
-        body={<BulletList items={project.methods} t={t} />}
-      />
-      <Section
-        index={4}
-        title={t({ en: "Outcomes", zh: "成果" })}
-        body={<BulletList items={project.outcomes} t={t} />}
-      />
+  const sections: Array<{
+    index: number;
+    title: string;
+    body: ReactNode;
+  }> = [
+    {
+      index: 1,
+      title: t({ en: "Background", zh: "项目背景" }),
+      body: (
+        <p className="max-w-3xl text-base leading-8 text-foreground/84 md:text-[1.02rem]">
+          {t(project.background)}
+        </p>
+      ),
+    },
+    {
+      index: 2,
+      title: t({ en: "Core Work", zh: "核心工作" }),
+      body: <NarrativeList items={project.coreWork} t={t} />,
+    },
+    {
+      index: 3,
+      title: t({ en: "Methods", zh: "方法" }),
+      body: <NarrativeList items={project.methods} t={t} />,
+    },
+    {
+      index: 4,
+      title: t({ en: "Outcomes", zh: "成果" }),
+      body: <NarrativeList items={project.outcomes} t={t} />,
+    },
+  ];
 
-      {project.tech && project.tech.length > 0 ? (
-        <Section
-          index={5}
-          title={t({ en: "Tech Stack", zh: "技术栈" })}
-          body={
-            <div className="flex flex-wrap gap-1.5">
-              {project.tech.map((tech) => (
-                <span
-                  key={tech}
-                  className="inline-flex items-center rounded-md border border-border bg-muted px-2 py-0.5 text-xs font-medium text-foreground/80"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          }
-        />
-      ) : null}
-    </div>
+  if (project.tech.length > 0) {
+    sections.push({
+      index: 5,
+      title: t({ en: "Tech Stack", zh: "技术栈" }),
+      body: (
+        <div className="flex flex-wrap gap-2">
+          {project.tech.map((tech) => (
+            <Badge
+              key={tech}
+              variant="outline"
+              className="border-border/70 bg-background/58 px-3 py-1 text-[0.72rem] text-foreground/82"
+            >
+              {tech}
+            </Badge>
+          ))}
+        </div>
+      ),
+    });
+  }
+
+  return (
+    <Stagger className="space-y-8 md:space-y-10">
+      {sections.map((section) => (
+        <StaggerItem key={section.index}>
+          <NarrativeSection
+            index={section.index}
+            title={section.title}
+            body={section.body}
+          />
+        </StaggerItem>
+      ))}
+    </Stagger>
   );
 }
 
-function Section({
+function NarrativeSection({
   index,
   title,
   body,
 }: {
   index: number;
-  title: ReactNode;
+  title: string;
   body: ReactNode;
 }) {
   return (
-    <section className="grid gap-4 md:grid-cols-[7rem_minmax(0,1fr)] md:gap-10">
-      <div className="md:pt-1">
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground tabular-nums">
-          {String(index).padStart(2, "0")}
-        </p>
-        <h2 className="mt-1.5 text-lg md:text-xl font-semibold tracking-tight">
+    <section className="grid gap-4 lg:grid-cols-[9rem_minmax(0,1fr)] lg:gap-8">
+      <div className="lg:pt-6">
+        <p className="section-kicker tabular-nums">{String(index).padStart(2, "0")}</p>
+        <h2 className="mt-2 text-xl font-semibold tracking-[-0.03em] md:text-[1.7rem]">
           {title}
         </h2>
       </div>
-      <div className="border-t border-border md:border-t-0 md:border-l md:pl-10 pt-4 md:pt-0">
-        {body}
-      </div>
+
+      <div className="surface-panel p-6 md:p-8">{body}</div>
     </section>
   );
 }
 
-function BulletList({
+function NarrativeList({
   items,
   t,
 }: {
   items: Localized<string[]>;
-  t: <T>(v: Localized<T>) => T;
+  t: <T>(value: Localized<T>) => T;
 }) {
   const list = t(items);
+
   return (
-    <ul className="space-y-2.5 prose-academic">
-      {list.map((line, i) => (
-        <li key={i} className="pl-5 relative leading-relaxed">
-          <span
-            aria-hidden
-            className="absolute left-0 top-[0.6em] h-1 w-2.5 bg-primary/70"
-          />
-          {line}
+    <ol className="space-y-3">
+      {list.map((line, index) => (
+        <li
+          key={index}
+          className="grid gap-3 rounded-[1.15rem] border border-border/65 bg-background/54 p-4 md:grid-cols-[2.5rem_minmax(0,1fr)] md:items-start"
+        >
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-foreground/[0.08] text-xs font-semibold text-foreground">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <span className="text-sm leading-7 text-foreground/82 md:text-[0.95rem]">
+            {line}
+          </span>
         </li>
       ))}
-    </ul>
+    </ol>
   );
 }

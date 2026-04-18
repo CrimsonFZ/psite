@@ -8,6 +8,7 @@ import { useLang } from "@/lib/i18n";
 
 export function ResearchInterests() {
   const { t } = useLang();
+
   return (
     <section id="research-interests" className="section-tight">
       <Container>
@@ -20,16 +21,27 @@ export function ResearchInterests() {
               zh: "当前我正在研究或持续关注的方向。",
             })}
           />
-          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {researchInterests.map((item, i) => (
+
+          <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {researchInterests.map((item, index) => (
               <li
-                key={i}
-                className="rounded-lg border border-border bg-card/40 px-4 py-3 text-sm transition-colors hover:border-foreground/30 hover:bg-card"
+                key={index}
+                className="surface-panel p-5 transition-all duration-300 ease-academic hover:-translate-y-0.5 hover:border-foreground/20"
               >
-                <span className="mr-2 text-muted-foreground tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                {t(item)}
+                <div className="flex items-start justify-between gap-4">
+                  <p className="academic-label">
+                    {t({ en: "Focus", zh: "方向" })} {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <span
+                    className="text-2xl font-semibold tracking-[-0.04em] text-foreground/10"
+                    aria-hidden="true"
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <p className="mt-5 text-sm leading-7 text-foreground/84 md:text-[0.95rem]">
+                  {t(item)}
+                </p>
               </li>
             ))}
           </ul>

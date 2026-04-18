@@ -4,94 +4,311 @@
 
 @layer base {
   :root {
-    /* Academic palette — slate-900 / indigo-950 (from docs/08_visual_style_guide.md) */
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;           /* slate-900 */
+    --background: 220 30% 98%;
+    --foreground: 222 34% 14%;
 
-    --muted: 220 14% 96%;                /* slate-100 */
-    --muted-foreground: 215 16% 47%;     /* slate-500 */
+    --muted: 220 24% 95%;
+    --muted-foreground: 220 12% 40%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 222 34% 14%;
 
-    --border: 214 32% 91%;               /* slate-200 */
-    --ring: 222 47% 11%;
+    --border: 220 22% 86%;
+    --ring: 221 39% 18%;
 
-    --primary: 222 47% 11%;              /* slate-900 */
-    --primary-foreground: 210 40% 98%;   /* slate-50 */
+    --primary: 221 39% 18%;
+    --primary-foreground: 210 40% 98%;
 
-    --accent: 215 25% 27%;               /* slate-700 */
+    --accent: 217 25% 32%;
     --accent-foreground: 210 40% 98%;
 
-    --link: 226 57% 21%;                 /* indigo-950 */
+    --link: 221 57% 25%;
+
+    --hero-glow: 218 78% 92%;
+    --hero-accent: 210 75% 90%;
+    --grid-line: 220 22% 88%;
+    --shadow-color: 220 44% 16%;
   }
 
   .dark {
-    --background: 222 47% 6%;            /* near #0B1120 */
-    --foreground: 210 40% 96%;
+    --background: 222 31% 8%;
+    --foreground: 210 30% 95%;
 
-    --muted: 217 33% 12%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 24% 14%;
+    --muted-foreground: 215 16% 68%;
 
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 96%;
+    --card: 222 27% 10%;
+    --card-foreground: 210 30% 95%;
 
-    --border: 217 33% 17%;
-    --ring: 210 40% 96%;
+    --border: 217 21% 18%;
+    --ring: 210 30% 95%;
 
-    --primary: 210 40% 96%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 210 30% 95%;
+    --primary-foreground: 222 31% 10%;
 
-    --accent: 215 20% 75%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 214 20% 78%;
+    --accent-foreground: 222 31% 10%;
 
-    --link: 213 94% 78%;                 /* light indigo for dark bg */
+    --link: 210 88% 80%;
+
+    --hero-glow: 219 63% 18%;
+    --hero-accent: 198 72% 22%;
+    --grid-line: 216 18% 17%;
+    --shadow-color: 222 90% 3%;
   }
 
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background font-sans text-foreground;
+    position: relative;
+    min-height: 100vh;
+    isolation: isolate;
     text-rendering: optimizeLegibility;
+    background-image:
+      radial-gradient(circle at top, hsl(var(--hero-glow) / 0.28), transparent 32rem),
+      radial-gradient(circle at 85% 18%, hsl(var(--hero-accent) / 0.12), transparent 24rem),
+      linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background)) 100%);
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(hsl(var(--grid-line) / 0.55) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--grid-line) / 0.55) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: linear-gradient(to bottom, black, transparent 72%);
+    opacity: 0.34;
   }
 
   ::selection {
-    background: hsl(var(--primary) / 0.15);
+    background: hsl(var(--primary) / 0.16);
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     @apply font-semibold tracking-tight;
   }
 
   a {
-    @apply underline-offset-4;
+    @apply underline-offset-4 transition-colors duration-200 ease-academic;
+  }
+
+  * {
+    scrollbar-color: hsl(var(--border)) transparent;
   }
 }
 
 @layer utilities {
   .section {
-    @apply py-16 md:py-24;
+    padding-block: 5rem;
   }
+
   .section-tight {
-    @apply py-12 md:py-16;
+    padding-block: 3.5rem;
   }
+
   .prose-academic {
-    @apply text-foreground/90 leading-relaxed;
+    @apply leading-relaxed text-foreground/90;
+  }
+
+  .hero-grid {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .hero-grid::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(hsl(var(--grid-line) / 0.6) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--grid-line) / 0.6) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(circle at top left, black, transparent 74%);
+    opacity: 0.32;
+  }
+
+  .hero-panel {
+    background:
+      linear-gradient(180deg, hsl(var(--card) / 0.94), hsl(var(--card) / 0.78));
+    border: 1px solid hsl(var(--border) / 0.78);
+    box-shadow:
+      0 20px 60px -36px hsl(var(--shadow-color) / 0.42),
+      inset 0 1px 0 hsl(0 0% 100% / 0.06);
+  }
+
+  .surface-panel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    border: 1px solid hsl(var(--border) / 0.75);
+    background:
+      linear-gradient(180deg, hsl(var(--card) / 0.84), hsl(var(--card) / 0.72));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 52px -40px hsl(var(--shadow-color) / 0.56);
+  }
+
+  .surface-panel::before {
+    content: "";
+    position: absolute;
+    inset-inline: 1.5rem;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--foreground) / 0.18),
+      transparent
+    );
+  }
+
+  .surface-panel-muted {
+    background:
+      linear-gradient(180deg, hsl(var(--card) / 0.82), hsl(var(--muted) / 0.54));
+  }
+
+  .project-media-frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 1px solid hsl(var(--border) / 0.7);
+    background:
+      radial-gradient(circle at top left, hsl(var(--hero-glow) / 0.4), transparent 60%),
+      linear-gradient(180deg, hsl(var(--muted) / 0.95), hsl(var(--card) / 0.72));
+  }
+
+  .project-media-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, hsl(var(--background) / 0.32), transparent 42%);
+    pointer-events: none;
+  }
+
+  .research-lead {
+    position: relative;
+    border-radius: 1.5rem;
+    border: 1px solid hsl(var(--border) / 0.78);
+    background:
+      linear-gradient(180deg, hsl(var(--card) / 0.88), hsl(var(--card) / 0.76));
+    padding: 1.5rem;
+    box-shadow: 0 18px 48px -40px hsl(var(--shadow-color) / 0.5);
+  }
+
+  .research-lead::before {
+    content: "";
+    position: absolute;
+    left: 1.5rem;
+    top: 1.5rem;
+    bottom: 1.5rem;
+    width: 2px;
+    border-radius: 999px;
+    background: linear-gradient(
+      180deg,
+      hsl(var(--primary) / 0.72),
+      hsl(var(--primary) / 0.18)
+    );
+  }
+
+  .resource-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-radius: 1rem;
+    border: 1px solid hsl(var(--border) / 0.7);
+    background: hsl(var(--background) / 0.55);
+    padding: 0.875rem 1rem;
+    text-decoration: none;
+    transition:
+      background-color 0.2s,
+      border-color 0.2s,
+      transform 0.2s,
+      box-shadow 0.2s;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .resource-link:hover {
+    transform: translateY(-2px);
+    border-color: hsl(var(--foreground) / 0.18);
+    background: hsl(var(--card) / 0.82);
+    box-shadow: 0 14px 30px -28px hsl(var(--shadow-color) / 0.85);
+  }
+
+  .soft-divider {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--border)),
+      transparent
+    );
+  }
+
+  .section-kicker {
+    @apply text-[0.72rem] font-medium uppercase tracking-[0.22em] text-muted-foreground;
+  }
+
+  .academic-label {
+    @apply text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground;
+  }
+
+  .section-stack {
+    @apply space-y-6 md:space-y-8;
+  }
+
+  .text-balance {
+    text-wrap: balance;
   }
 }
 
-/* Print styles — used primarily by /cv when exporting to PDF. */
+@media (min-width: 768px) {
+  .section {
+    padding-block: 7rem;
+  }
+
+  .section-tight {
+    padding-block: 4.5rem;
+  }
+
+  .research-lead {
+    padding: 2rem 2rem 2rem 2.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 @media print {
   html,
   body {
     background: #ffffff !important;
     color: #000000 !important;
   }
-  /* Neutralise design tokens so the printed page does not pick up dark-mode colors. */
+
   :root,
   .dark {
     --background: 0 0% 100%;
@@ -104,23 +321,37 @@
     --primary: 222 47% 11%;
     --primary-foreground: 0 0% 100%;
     --link: 226 57% 21%;
+    --hero-glow: 0 0% 100%;
+    --hero-accent: 0 0% 100%;
+    --grid-line: 0 0% 100%;
+    --shadow-color: 0 0% 100%;
   }
+
+  body::before {
+    display: none !important;
+  }
+
   a {
     color: inherit !important;
     text-decoration: none !important;
   }
+
   .cv-root {
     font-size: 11pt !important;
   }
+
   .cv-root h1 {
     font-size: 20pt !important;
   }
+
   .cv-root h2 {
     font-size: 9pt !important;
   }
+
   .cv-root h3 {
     font-size: 11pt !important;
   }
+
   @page {
     margin: 14mm 16mm;
   }

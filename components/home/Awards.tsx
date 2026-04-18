@@ -10,7 +10,9 @@ import { useLang } from "@/lib/i18n";
 
 export function Awards() {
   const { t } = useLang();
+
   if (awards.length === 0) return null;
+
   return (
     <section id="awards" className="section-tight">
       <Container>
@@ -19,31 +21,46 @@ export function Awards() {
             eyebrow={t({ en: "Recognition", zh: "荣誉" })}
             title={t({ en: "Awards & Honors", zh: "奖项与荣誉" })}
           />
-          <ul className="divide-y divide-border/70 border-y border-border/70">
-            {awards.map((a, i) => (
-              <li key={i} className="grid gap-2 py-4 md:grid-cols-[8rem_auto_1fr] md:items-baseline md:gap-6">
-                <p className="text-xs tabular-nums text-muted-foreground md:pt-0.5">
-                  {a.period}
-                </p>
-                <div className="md:min-w-[8rem]">
-                  {a.category ? (
-                    <Badge variant="accent" className="gap-1">
-                      <AwardIcon className="h-3 w-3" />
-                      {t(a.category)}
-                    </Badge>
-                  ) : null}
-                </div>
-                <div>
-                  <p className="font-medium">{t(a.title)}</p>
-                  {a.description ? (
-                    <p className="mt-1 text-sm text-muted-foreground max-w-prose">
-                      {t(a.description)}
+
+          <div className="surface-panel p-6 md:p-8">
+            <ul className="divide-y divide-border/60">
+              {awards.map((award, index) => (
+                <li
+                  key={index}
+                  className="grid gap-4 py-5 first:pt-0 last:pb-0 md:grid-cols-[9rem_minmax(0,10rem)_1fr] md:gap-6"
+                >
+                  <div className="space-y-2">
+                    <p className="academic-label">
+                      {t({ en: "Period", zh: "时间" })}
                     </p>
-                  ) : null}
-                </div>
-              </li>
-            ))}
-          </ul>
+                    <p className="text-sm font-medium tabular-nums text-foreground/76">
+                      {award.period}
+                    </p>
+                  </div>
+
+                  <div className="md:pt-0.5">
+                    {award.category ? (
+                      <Badge variant="accent" className="gap-1.5 px-3 py-1">
+                        <AwardIcon className="h-3 w-3" />
+                        {t(award.category)}
+                      </Badge>
+                    ) : null}
+                  </div>
+
+                  <div className="space-y-2">
+                    <p className="text-sm font-semibold leading-7 text-foreground/88 md:text-[0.95rem]">
+                      {t(award.title)}
+                    </p>
+                    {award.description ? (
+                      <p className="max-w-prose text-sm leading-7 text-muted-foreground">
+                        {t(award.description)}
+                      </p>
+                    ) : null}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </FadeIn>
       </Container>
     </section>

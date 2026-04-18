@@ -6,7 +6,6 @@ interface SectionTitleProps {
   title: ReactNode;
   description?: ReactNode;
   align?: "left" | "center";
-  /** Rendered heading level. Page-top titles should be "h1"; in-page sections stay "h2" (default). */
   as?: "h1" | "h2";
   className?: string;
 }
@@ -21,28 +20,53 @@ export function SectionTitle({
 }: SectionTitleProps) {
   const headingClasses =
     as === "h1"
-      ? "text-3xl md:text-4xl font-semibold tracking-tight"
-      : "text-2xl md:text-3xl font-semibold tracking-tight";
+      ? "text-3xl font-semibold tracking-[-0.03em] md:text-5xl text-balance"
+      : "text-2xl font-semibold tracking-[-0.03em] md:text-[2rem] text-balance";
 
   return (
     <div
       className={cn(
-        "space-y-3 mb-10",
-        align === "center" && "text-center mx-auto",
+        "mb-10 space-y-4",
+        align === "center" && "mx-auto text-center",
         className
       )}
     >
       {eyebrow ? (
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-          {eyebrow}
-        </p>
+        <div
+          className={cn(
+            "flex items-center gap-3",
+            align === "center" && "justify-center"
+          )}
+        >
+          <span className="h-px w-10 bg-border/80" aria-hidden="true" />
+          <p className="section-kicker">{eyebrow}</p>
+          {align === "center" ? (
+            <span className="h-px w-10 bg-border/80" aria-hidden="true" />
+          ) : null}
+        </div>
       ) : null}
-      {createElement(as, { className: headingClasses }, title)}
-      {description ? (
-        <p className="max-w-2xl text-sm md:text-base text-muted-foreground">
-          {description}
-        </p>
-      ) : null}
+
+      <div className={cn("space-y-3", align === "center" && "mx-auto max-w-3xl")}>
+        {createElement(as, { className: headingClasses }, title)}
+        {description ? (
+          <p
+            className={cn(
+              "max-w-2xl text-sm leading-7 text-muted-foreground md:text-base md:leading-8",
+              align === "center" && "mx-auto"
+            )}
+          >
+            {description}
+          </p>
+        ) : null}
+      </div>
+
+      <div
+        className={cn(
+          "soft-divider max-w-5xl",
+          align === "center" && "mx-auto max-w-3xl"
+        )}
+        aria-hidden="true"
+      />
     </div>
   );
 }

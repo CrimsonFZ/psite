@@ -9,6 +9,7 @@ import { useLang } from "@/lib/i18n";
 
 export function Skills() {
   const { t } = useLang();
+
   return (
     <section id="skills" className="section-tight">
       <Container>
@@ -17,18 +18,29 @@ export function Skills() {
             eyebrow={t({ en: "Toolkit", zh: "工具箱" })}
             title={t({ en: "Skills", zh: "技术栈" })}
           />
-          <div className="grid gap-6 md:grid-cols-2">
-            {skills.map((group, i) => (
-              <div key={i} className="space-y-3">
-                <h3 className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
-                  {t(group.category)}
-                </h3>
-                <div className="flex flex-wrap gap-1.5">
-                  {group.items.map((item) => (
-                    <Badge key={item} variant="default">
-                      {item}
-                    </Badge>
-                  ))}
+
+          <div className="grid gap-4 lg:grid-cols-3">
+            {skills.map((group, index) => (
+              <div key={index} className="surface-panel p-5 md:p-6">
+                <div className="section-stack">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-sm font-semibold tracking-[-0.02em] text-foreground/88">
+                      {t(group.category)}
+                    </h3>
+                    <span className="academic-label">
+                      {String(group.items.length).padStart(2, "0")}
+                    </span>
+                  </div>
+
+                  <div className="soft-divider" />
+
+                  <div className="flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <Badge key={item} variant="default" className="px-3 py-1">
+                        {item}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}

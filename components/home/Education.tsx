@@ -8,6 +8,7 @@ import { useLang } from "@/lib/i18n";
 
 export function Education() {
   const { t } = useLang();
+
   return (
     <section id="education" className="section-tight">
       <Container>
@@ -16,47 +17,64 @@ export function Education() {
             eyebrow={t({ en: "Education", zh: "教育" })}
             title={t({ en: "Education", zh: "教育经历" })}
           />
-          <ol className="relative space-y-8 overflow-visible border-l border-border pl-10 md:pl-12">
-            {education.map((item, i) => (
-              <li key={i} className="relative overflow-visible">
-                <span
-                  aria-hidden
-                  className="absolute -left-[1.9rem] top-2 h-3 w-3 rounded-full bg-primary ring-4 ring-background"
-                />
-                <div className="min-w-0">
-                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                    <h3 className="text-base font-semibold md:text-lg">
-                      {t(item.institution)}
-                    </h3>
-                    <p className="text-xs tabular-nums text-muted-foreground">
+
+          <div className="surface-panel p-6 md:p-8">
+            <ol className="space-y-6">
+              {education.map((item, index) => (
+                <li
+                  key={index}
+                  className="grid gap-5 border-t border-border/60 pt-6 first:border-0 first:pt-0 md:grid-cols-[10rem_minmax(0,1fr)]"
+                >
+                  <div className="space-y-2">
+                    <p className="academic-label">
+                      {t({ en: "Period", zh: "时间" })}
+                    </p>
+                    <p className="text-sm font-medium tabular-nums text-foreground/76">
                       {typeof item.period === "string" ? item.period : t(item.period)}
                     </p>
                   </div>
-                  <p className="mt-1 text-sm text-foreground/90">{t(item.program)}</p>
-                  {(item.score || item.gpa) && (
-                    <p className="mt-1 text-xs text-muted-foreground">
-                      {[
-                        item.score
-                          ? t({
-                              en: `Average Score ${item.score}`,
-                              zh: `均分 ${item.score}`,
-                            })
-                          : null,
-                        item.gpa ? `GPA ${item.gpa}` : null,
-                      ]
-                        .filter(Boolean)
-                        .join(" · ")}
-                    </p>
-                  )}
-                  {item.description ? (
-                    <p className="mt-3 max-w-prose text-sm text-muted-foreground">
-                      {t(item.description)}
-                    </p>
-                  ) : null}
-                </div>
-              </li>
-            ))}
-          </ol>
+
+                  <div className="rounded-[1.25rem] border border-border/65 bg-background/56 p-5 md:p-6">
+                    <div className="flex flex-wrap items-start justify-between gap-4">
+                      <div className="space-y-2">
+                        <h3 className="text-lg font-semibold tracking-[-0.02em]">
+                          {t(item.institution)}
+                        </h3>
+                        <p className="text-sm leading-7 text-foreground/84 md:text-[0.95rem]">
+                          {t(item.program)}
+                        </p>
+                      </div>
+
+                      {(item.score || item.gpa) ? (
+                        <div className="rounded-full border border-border/70 bg-card/72 px-3 py-1.5 text-xs text-muted-foreground">
+                          {[
+                            item.score
+                              ? t({
+                                  en: `Average Score ${item.score}`,
+                                  zh: `均分 ${item.score}`,
+                                })
+                              : null,
+                            item.gpa ? `GPA ${item.gpa}` : null,
+                          ]
+                            .filter(Boolean)
+                            .join(" / ")}
+                        </div>
+                      ) : null}
+                    </div>
+
+                    {item.description ? (
+                      <>
+                        <div className="my-4 soft-divider" />
+                        <p className="max-w-prose text-sm leading-7 text-muted-foreground">
+                          {t(item.description)}
+                        </p>
+                      </>
+                    ) : null}
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
         </FadeIn>
       </Container>
     </section>
