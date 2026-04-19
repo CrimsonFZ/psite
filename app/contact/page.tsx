@@ -75,8 +75,8 @@ export default function ContactPage() {
                       </p>
                       <p className="text-sm leading-relaxed text-foreground/82">
                         {t({
-                          en: "Two email channels are available. Personal email is the primary contact, while the academic address remains available for university and research communication.",
-                          zh: "当前保留两个邮箱渠道。个人邮箱作为主要联系入口，学术邮箱继续用于校内与科研沟通。",
+                          en: "Two email channels are available for general and academic communication.",
+                          zh: "当前提供两个邮箱渠道，用于日常与学术相关沟通。",
                         })}
                       </p>
                     </div>
