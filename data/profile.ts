@@ -15,7 +15,8 @@ export const profile: Profile = {
     en: "Wuhan, China",
     zh: "中国 · 武汉",
   },
-  email: "2023302071360@whu.edu.cn",
+  email: "crimson@fangzhoulin.com",
+  academicEmail: "2023302071360@whu.edu.cn",
   github: "https://github.com/CrimsonFZ",
   tagline: {
     en: "Power system time-series forecasting · Multimodal energy data modeling · AI methods.",

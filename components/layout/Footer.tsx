@@ -26,7 +26,7 @@ export function Footer() {
             className="inline-flex items-center gap-1.5 no-underline transition-colors hover:text-foreground"
           >
             <Mail className="h-3.5 w-3.5" />
-            Email
+            Personal Email
           </a>
         </div>
       </Container>

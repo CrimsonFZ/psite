@@ -12,6 +12,7 @@ export interface Profile {
   university: Localized<string>;
   location?: Localized<string>;
   email: string;
+  academicEmail: string;
   github: string;
   bio: Localized<string>;
   tagline: Localized<string>;
@@ -75,6 +76,7 @@ export interface SkillGroup {
 
 export interface ContactInfo {
   email: string;
+  academicEmail: string;
   github: string;
   phone?: string;
   note?: Localized<string>;
@@ -94,5 +96,6 @@ export interface SiteConfig {
   links: {
     github: string;
     email: string;
+    academicEmail: string;
   };
 }

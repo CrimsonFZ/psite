@@ -107,6 +107,9 @@ export function Hero() {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
+                <span className="text-[0.68rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                  {t({ en: "Personal", zh: "个人" })}
+                </span>
                 <a href={`mailto:${profile.email}`} className="no-underline hover:text-link">
                   {profile.email}
                 </a>

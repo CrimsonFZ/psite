@@ -41,8 +41,19 @@ export function CvDocument() {
           ) : null}
           <li className="inline-flex items-center gap-1.5">
             <Mail className="h-3.5 w-3.5" />
+            <span>{t({ en: "Personal", zh: "个人" })}</span>
             <a href={`mailto:${profile.email}`} className="no-underline hover:text-link">
               {profile.email}
+            </a>
+          </li>
+          <li className="inline-flex items-center gap-1.5">
+            <Mail className="h-3.5 w-3.5" />
+            <span>{t({ en: "Academic", zh: "学术" })}</span>
+            <a
+              href={`mailto:${profile.academicEmail}`}
+              className="no-underline hover:text-link"
+            >
+              {profile.academicEmail}
             </a>
           </li>
           <li className="inline-flex items-center gap-1.5">

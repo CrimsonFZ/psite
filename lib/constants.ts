@@ -20,6 +20,7 @@ export const siteConfig: SiteConfig = {
   ],
   links: {
     github: "https://github.com/CrimsonFZ",
-    email: "2023302071360@whu.edu.cn",
+    email: "crimson@fangzhoulin.com",
+    academicEmail: "2023302071360@whu.edu.cn",
   },
 };

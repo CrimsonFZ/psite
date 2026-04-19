@@ -53,15 +53,33 @@ export function About() {
                   <div className="border-b border-border/60 pb-5 last:border-0 last:pb-0">
                     <dt className="flex items-center gap-2 academic-label">
                       <Mail className="h-3.5 w-3.5" />
-                      Email
+                      {t({ en: "Email", zh: "邮箱" })}
                     </dt>
                     <dd className="mt-2 pl-[1.35rem] text-sm leading-7 text-foreground/84 md:text-[0.95rem]">
-                      <a
-                        href={`mailto:${profile.email}`}
-                        className="no-underline hover:text-link"
-                      >
-                        {profile.email}
-                      </a>
+                      <div className="space-y-3">
+                        <div className="space-y-1">
+                          <p className="text-[0.68rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                            {t({ en: "Personal Email", zh: "个人邮箱" })}
+                          </p>
+                          <a
+                            href={`mailto:${profile.email}`}
+                            className="break-all no-underline hover:text-link"
+                          >
+                            {profile.email}
+                          </a>
+                        </div>
+                        <div className="space-y-1">
+                          <p className="text-[0.68rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                            {t({ en: "Academic Email", zh: "学术邮箱" })}
+                          </p>
+                          <a
+                            href={`mailto:${profile.academicEmail}`}
+                            className="break-all no-underline hover:text-link"
+                          >
+                            {profile.academicEmail}
+                          </a>
+                        </div>
+                      </div>
                     </dd>
                   </div>
 

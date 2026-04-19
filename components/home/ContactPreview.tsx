@@ -31,8 +31,8 @@ export function ContactPreview() {
                 </p>
                 <p className="max-w-2xl text-sm leading-7 text-foreground/82 md:text-[0.95rem]">
                   {t({
-                    en: "For research discussion, collaboration, or academic exchange, email remains the most direct channel.",
-                    zh: "如需科研交流、合作沟通或学术讨论，电子邮件仍是最直接的联系方式。",
+                    en: "For research discussion, collaboration, or academic exchange, personal email is the recommended first channel. The academic address remains available on the contact page.",
+                    zh: "如需科研交流、合作沟通或学术讨论，建议优先使用个人邮箱；学术邮箱也已在联系页面保留。",
                   })}
                 </p>
               </div>
